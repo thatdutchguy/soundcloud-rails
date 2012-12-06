@@ -1,0 +1,7 @@
+//= require soundcloud_sdk
+<%
+  params = {}
+  params[:client_id] = Rails.application.config.soundcloud.client_id or fail "No SoundCloud client ID found. Please set config.soundcloud.client_id in config/application.rb."
+  params[:redirect_uri] = Rails.application.config.soundcloud.redirect_uri
+%>
+SC.initialize(<%= params.to_json %>)
